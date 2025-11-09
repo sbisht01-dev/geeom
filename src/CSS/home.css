@@ -1,0 +1,183 @@
+.hero {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;;
+    z-index: 1;
+    padding: 80px 6%;
+    min-height: 80vh;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-tag {
+    font-family: 'Aileron', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(217, 161, 0);
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.hero-heading {
+    font-family: 'Anek Latin', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #222C50;
+    /* Professional dark blue */
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.hero-subtext {
+    font-family: 'Aileron', sans-serif;
+    font-size: 18px;
+    color: #5A648A;
+    /* Softer grey-blue text */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* --- 3. Buttons --- */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-btn {
+    font-family: 'Anek Latin', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.hero-btn.primary {
+    background-color: #FFC72C;
+    /* Primary yellow */
+    color: #332A00;
+    /* Dark text for contrast */
+}
+
+.hero-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 199, 44, 0.4);
+}
+
+.hero-btn.secondary {
+    background-color: #FFFFFF;
+    color: #222C50;
+    /* Dark blue text */
+    border: 1px solid #E0E0E0;
+    /* Light border */
+}
+
+.hero-btn.secondary:hover {
+    background-color: #f8f8f8;
+    border-color: #cccccc;
+}
+
+/* --- 4. Stats Section --- */
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-family: 'Anek Latin', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #222C50;
+    /* Dark blue */
+}
+
+.stat-label {
+    font-family: 'Aileron', sans-serif;
+    font-size: 14px;
+    color: #5A648A;
+    /* Softer grey-blue */
+    margin-top: 2px;
+}
+
+/* --- 5. Right Side: Image --- */
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* Makes it square */
+    object-fit: cover;
+    /* Ensures image fills the space */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        /* Stack on top of each other */
+        padding: 50px 6%;
+        text-align: center;
+    }
+
+    /* Make image come first on mobile */
+    .hero-image-container {
+        order: 1;
+        margin-bottom: 30px;
+        width: 80%;
+        /* Don't let it be full width */
+    }
+
+    .hero-content {
+        order: 2;
+        align-items: center;
+    }
+
+    .hero-heading {
+        font-size: 40px;
+        /* Smaller heading for mobile */
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        /* Center buttons */
+    }
+
+    .hero-stats {
+        justify-content: center;
+        /* Center stats */
+        gap: 20px;
+        flex-wrap: wrap;
+        /* Allow stats to wrap */
+    }
+
+    .stat {
+        align-items: center;
+    }
+}
