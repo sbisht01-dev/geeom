@@ -9,9 +9,7 @@ function Home() {
     <>
       <Navbar />
       <Hero />
-
     </>
-
   )
 }
 
