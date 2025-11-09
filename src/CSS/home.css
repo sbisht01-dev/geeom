@@ -1,12 +1,13 @@
 .hero {
-    width: 100vw;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
     position: relative;;
     z-index: 1;
-    padding: 80px 6%;
+    padding: 10vh 8%;
     min-height: 80vh;
     overflow: hidden;
 }
@@ -31,7 +32,6 @@
     font-size: 56px;
     font-weight: 700;
     color: #222C50;
-    /* Professional dark blue */
     margin: 20px 0;
     line-height: 1.2;
 }
@@ -39,7 +39,7 @@
 .hero-subtext {
     font-family: 'Aileron', sans-serif;
     font-size: 18px;
-    color: #5A648A;
+    color: #0d131a;
     /* Softer grey-blue text */
     line-height: 1.6;
     margin-bottom: 30px;

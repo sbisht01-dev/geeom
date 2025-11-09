@@ -28,10 +28,8 @@ const Navbar = () => {
 
   return (
     <Nav>
-      {/* 1. Backdrop (Renders only when menu is open) */}
       {isMenuOpen && <Backdrop onClick={handleBackdropClick} />}
       
-      {/* 2. Brand Section */}
       <Brand>
         <StyledLink to="/">
           {/* <Logo src={LogoImage} alt="Finance Office Logo" /> */}
@@ -71,15 +69,11 @@ const Navbar = () => {
 
 export default Navbar;
 
-
-// --- STYLED COMPONENTS DEFINITIONS ---
-// These must be defined before export default Navbar; 
-
-// Core Structure
 const Nav = styled.nav`
+box-sizing:border-box;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  padding: 10px 20px;
+  padding: 10px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -98,7 +92,7 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #1E1E1EFF;
+  color: #0d131a;
 `;
 
 const Logo = styled.img`
@@ -112,6 +106,8 @@ const Title = styled.span`
   font-weight: 700;
   letter-spacing: 0.5px;
   z-index: 1001;
+  color: #0d131a;
+
 `;
 
 // Desktop Navigation
@@ -134,7 +130,7 @@ const NavLink = styled(Link)`
   transition: color 0.3s;
 
   &:hover {
-    color: #0066cc;
+    color: #FFC72C;
   }
 `;
 
@@ -144,7 +140,7 @@ const HamburgerButton = styled.button`
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #1E1E1EFF;
+  color: #0d131a;
   z-index: 1001;
 
   @media (min-width: ${MAX_MOBILE_WIDTH}) {
