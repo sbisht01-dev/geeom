@@ -76,7 +76,7 @@
 
 .hero-btn.secondary {
     background-color: #FFFFFF;
-    color: #222C50;
+    color: #332A00;
     /* Dark blue text */
     border: 1px solid #E0E0E0;
     /* Light border */
@@ -180,4 +180,58 @@
     .stat {
         align-items: center;
     }
+}
+
+
+/* src/components/ServicesHeader.css */
+
+.services-header {
+  /* Spacing and Alignment */
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff; /* Assumes a white background */
+}
+
+.services-tag {
+  /* "Our Services" yellow tag */
+  display: inline-block;
+  font-family: 'Aileron', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #D9A100; /* Darker yellow for text */
+  background-color: #FFF9E0; /* Light yellow tag bg */
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.services-heading {
+  /* "Comprehensive Financial Solutions" */
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 44px; /* Large heading size */
+  font-weight: 700;
+  color: #222C50; /* Professional dark blue */
+  margin: 15px 0 10px 0; /* Space above and below */
+}
+
+.services-subheading {
+  /* "We offer a full range..." */
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  color: #5A648A; /* Softer grey-blue text */
+  line-height: 1.6;
+  
+  /* Constrain the width for readability */
+  max-width: 600px; 
+  margin: 0 auto; /* Center the text block */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .services-heading {
+    font-size: 32px; /* Smaller heading for mobile */
+  }
+
+  .services-subheading {
+    font-size: 16px;
+  }
 }

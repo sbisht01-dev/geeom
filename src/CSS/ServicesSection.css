@@ -1,0 +1,144 @@
+/* src/components/ServicesSection.css */
+
+/* --- 1. Main Section Container --- */
+.services-section {
+  padding: 80px 6%; /* 6% padding on the sides */
+  background-color: #ffffff;
+}
+
+/* --- 2. Header Content --- */
+.services-header-content {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 50px auto; /* Center header and add space below */
+}
+
+.services-tag {
+  display: inline-block;
+  font-family: 'Aileron', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #D9A100; /* Darker yellow for text */
+  background-color: #FFF9E0; /* Light yellow tag bg */
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.services-heading {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #222C50; /* Professional dark blue */
+  margin: 15px 0 10px 0;
+}
+
+.services-subheading {
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  color: #5A648A; /* Softer grey-blue text */
+  line-height: 1.6;
+}
+
+/* --- 3. Services Grid --- */
+.services-grid {
+  display: grid;
+  /* Create 3 columns of equal size */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; /* Space between cards */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the grid */
+}
+
+/* --- 4. Individual Cards --- */
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid #F0F0F0; /* Light border */
+  border-radius: 16px; /* Rounded corners */
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.card-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #FFF9E0; /* Yellow background for icon */
+  border-radius: 12px; /* Rounded corners for icon bg */
+  margin-bottom: 20px;
+}
+
+.card-icon-placeholder {
+  font-size: 24px;
+}
+
+.card-title {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #222C50;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-family: 'Aileron', sans-serif;
+  font-size: 16px;
+  color: #5A648A;
+  line-height: 1.6;
+}
+
+/* --- 5. "View All" Button --- */
+.services-button-container {
+  text-align: center;
+  margin-top: 50px; /* Space above the button */
+}
+
+.services-view-all-btn {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0a0a0a;
+  background-color: #FFC72C; /* Dark blue/black bg */
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.services-view-all-btn:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 900px) {
+  .services-grid {
+    /* Stack to 2 columns on tablets */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    /* Stack to 1 column on mobile */
+    grid-template-columns: 1fr;
+  }
+
+  .services-heading {
+    font-size: 30px;
+  }
+
+  .services-subheading {
+    font-size: 16px;
+  }
+}

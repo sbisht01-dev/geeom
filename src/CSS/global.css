@@ -1,4 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
+}
+
+::selection {
+  background-color: #FFC72C; /* Your light yellow tag color */
+  color: #222C50;            /* Your dark blue heading color */
 }
