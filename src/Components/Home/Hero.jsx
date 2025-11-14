@@ -1,18 +1,19 @@
-import React from 'react'
-import Navbar from '../Components/Navbar'
-import { Link } from 'react-router-dom'
-import heroBuildingImage from '../assets/hero-img.jpg';
-import '../CSS/home.css'
+import React from 'react';
+import Navbar from '../Navbar';
+import { Link } from 'react-router-dom';
+import heroBuildingImage from '../../assets/hero-img.jpg';
+import '../../CSS/home.css';
 
 function Hero() {
     return (
         <>
-            <div
+           <div
                 style={{
                     minHeight: '80vh',
                     width: '100vw',
                     backgroundColor: '#ffffff',
                     position: 'relative',
+                    zIndex: 1, 
                 }}
             >
                 <div
@@ -22,17 +23,18 @@ function Hero() {
                         right: '0',
                         bottom: '0',
                         left: '0',
-                        zIndex: 0,
+                        zIndex: 0, // This is the lowest layer
                         backgroundImage: `
         linear-gradient(to right, rgba(229,231,235,0.8) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(229,231,235,0.8) 1px, transparent 1px),
         radial-gradient(circle 500px at 0% 20%, rgba(217,161,0,0.1), transparent),
-        radial-gradient(circle 500px at 100% 0%, rgba(5217,161,0,0.1), transparent)
+        radial-gradient(circle 500px at 100% 0%, rgba(217,161,0,0.1), transparent)
       `,
                         backgroundSize: '48px 48px, 48px 48px, 100% 100%, 100% 100%',
                     }}
                 />
-                <section className="hero">
+                
+                <section className="hero" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="hero-content">
 
                         <span className="hero-tag">Trusted by 10,000+ clients worldwide</span>
@@ -79,13 +81,7 @@ function Hero() {
                 </section>
             </div>
         </>
-
-    )
+    );
 }
 
-export default Hero
-
-
-
-
-
+export default Hero;

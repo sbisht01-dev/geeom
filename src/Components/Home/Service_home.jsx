@@ -3,17 +3,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // Make sure you have a corresponding CSS file
-import '../CSS/ServicesSection.css'; 
+import '../../CSS/ServicesSection.css'; 
 
-// --- 1. Import your SVGs from the 'icons' folder ---
-import MutualFundIcon from '../assets/icons/mf.svg?react';
-import LifeInsuranceIcon from '../assets/icons/lic.svg?react';
-import RetirementIcon from '../assets/icons/retirement.svg?react';
-import AnalysisIcon from '../assets/icons/analysis.svg?react';
-import EstateIcon from '../assets/icons/estate.svg?react';
-import TaxIcon from '../assets/icons/tax.svg?react';
+import MutualFundIcon from '../../assets/icons/mf.svg?react';
+import LifeInsuranceIcon from '../../assets/icons/lic.svg?react';
+import RetirementIcon from '../../assets/icons/retirement.svg?react';
+import AnalysisIcon from '../../assets/icons/analysis.svg?react';
+import EstateIcon from '../../assets/icons/estate.svg?react';
+import TaxIcon from '../../assets/icons/tax.svg?react';
 
-// --- 2. Update the list to use the imported components ---
+
 const servicesList = [
   {
     icon: MutualFundIcon,

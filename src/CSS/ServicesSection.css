@@ -2,7 +2,7 @@
 
 /* --- 1. Main Section Container --- */
 .services-section {
-  padding: 80px 6%; /* 6% padding on the sides */
+  padding: 80px 12%; /* 6% padding on the sides */
   background-color: #ffffff;
 }
 
@@ -45,7 +45,7 @@
   /* Create 3 columns of equal size */
   grid-template-columns: repeat(3, 1fr); 
   gap: 30px; /* Space between cards */
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto; /* Center the grid */
 }
 

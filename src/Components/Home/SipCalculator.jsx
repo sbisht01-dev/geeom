@@ -1,8 +1,5 @@
-// src/components/SipCalculator.jsx
-
 import React, { useState, useEffect } from 'react';
-// We can reuse the same CSS file for all calculators
-import '../CSS/FinancialCalculators.css'; 
+import '../../CSS/FinancialCalculators.css'; 
 
 const SipCalculator = () => {
   // State for the inputs
@@ -24,12 +21,10 @@ const SipCalculator = () => {
     }).format(number);
   };
 
-  // Run calculation whenever inputs change
   useEffect(() => {
     const i = (rate / 100) / 12; // Monthly interest rate
     const n = period * 12; // Number of months
 
-    // SIP Future Value Formula: M = P × ({[1 + i]^n - 1} / i) × (1 + i)
     const fv = monthlyInvestment * (Math.pow(1 + i, n) - 1) / i * (1 + i);
     const ti = monthlyInvestment * n;
     const er = fv - ti;
@@ -41,9 +36,9 @@ const SipCalculator = () => {
 
   return (
     <div className="calculator-wrapper">
-      <h3 className="calc-title">📈 Mutual Fund SIP Calculator</h3>
+      <h3 className="calc-title">Mutual Fund SIP Calculator</h3>
       <p className="calc-subtitle">
-        Calculate your potential returns from Systematic Investment Plan (SIP) at 12% annual return
+        Calculate your potential returns from Systematic Investment Plan (SIP) at {`${rate}`}% annual return
       </p>
 
       <div className="calculator-body">
@@ -95,7 +90,7 @@ const SipCalculator = () => {
         </div>
       </div>
       <p className="calculator-note">
-        *Returns are illustrative and based on assumed rate of 12% p.a. Actual returns may vary based on market conditions.
+        *Returns are illustrative and based on assumed rate of {`${rate}`}% p.a. Actual returns may vary based on market conditions.
       </p>
     </div>
   );

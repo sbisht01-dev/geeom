@@ -178,3 +178,29 @@
     padding: 20px;
   }
 }
+
+
+
+/* FD  */
+
+/* Add this block to your FinancialCalculators.css */
+
+.calculator-select {
+  /* Copying styles from the regular input field */
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f8f9fc;
+  
+  /* Adding an arrow icon for better usability */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707%205.657-5.657-1.414-1.414L10%2011.536%204.343%205.879%202.93%207.293l7.07%207.07z%22%20fill%3D%22%23222C50%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}

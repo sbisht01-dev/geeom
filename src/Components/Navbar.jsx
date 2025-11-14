@@ -73,7 +73,7 @@ const Nav = styled.nav`
 box-sizing:border-box;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  padding: 10px 8%;
+  padding: 10px 12%;
   display: flex;
   justify-content: space-between;
   align-items: center;
