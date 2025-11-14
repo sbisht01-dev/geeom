@@ -11,7 +11,7 @@ function App() {
   // --- Lenis Smooth Scroll Setup ---
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2, // How long the animation lasts (in seconds)
+      duration: 0.2, // How long the animation lasts (in seconds)
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
       smoothTouch: true, // Enable smooth scrolling for touch devices
     });
