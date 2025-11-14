@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Lenis from '@studio-freight/lenis'; // 1. Import Lenis
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import './CSS/global.css';
@@ -7,7 +8,28 @@ import './CSS/global.css';
 import NotFound from './pages/NotFound';
 function App() {
 
-  // code for changing title on tab switch
+  // --- Lenis Smooth Scroll Setup ---
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2, // How long the animation lasts (in seconds)
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
+      smoothTouch: true, // Enable smooth scrolling for touch devices
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+
+  //tab switch title change
   useEffect(() => {
     document.initialTitle = document.title;
 

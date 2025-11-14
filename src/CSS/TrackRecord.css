@@ -1,0 +1,140 @@
+/* src/components/TrackRecord.css */
+
+/* --- 1. Section Container --- */
+.track-record-section {
+  background-color: #FFC72C; /* The vibrant yellow background */
+  padding: 80px 6%; /* Top/bottom padding, 6% side padding */
+  text-align: center;
+  color: #222C50; /* Dark blue text for contrast */
+}
+
+/* --- 2. Header --- */
+.track-record-header {
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.track-record-heading {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.track-record-subheading {
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* --- 3. Grid for Stats --- */
+.track-record-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px; /* Max width for the grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+/* --- 4. Individual Cards --- */
+.track-record-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  /* No background or border on cards, they blend with the section */
+}
+
+.card-icon {
+  font-size: 40px; /* Large icon size */
+  margin-bottom: 15px;
+  color: #222C50; /* Ensure icon color contrasts */
+}
+
+.card-value {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #222C50;
+  margin-bottom: 5px;
+}
+
+.card-label {
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222C50; /* Dark blue label */
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-family: 'Aileron', sans-serif;
+  font-size: 15px;
+  color: #5A648A; /* Slightly lighter blue for description */
+  line-height: 1.5;
+}
+
+.card-icon-wrapper-yellow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Slightly larger wrapper */
+  height: 60px;
+  /* Make the background transparent to blend with the yellow section */
+  background-color: transparent; 
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* The SVG icon itself */
+.card-svg-icon-blue {
+  width: 32px; /* Control the size of the icon */
+  height: 32px;
+  /* Set the icon color to match the dark blue text */
+  color: #222C50; 
+}
+
+/* --- 5. Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .track-record-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+
+  .track-record-heading {
+    font-size: 38px;
+  }
+  
+  .card-value {
+    font-size: 32px;
+  }
+
+  .card-label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .track-record-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile phones */
+  }
+
+  .track-record-section {
+    padding: 60px 4%; /* Less padding on small screens */
+  }
+
+  .track-record-heading {
+    font-size: 32px;
+  }
+
+  .track-record-subheading {
+    font-size: 16px;
+  }
+  
+  .card-icon {
+    font-size: 35px;
+  }
+}
+

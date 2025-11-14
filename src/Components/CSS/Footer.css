@@ -1,0 +1,148 @@
+/* src/components/Footer.css */
+
+/* --- 1. Main Container --- */
+.footer {
+  background-color: #0b0f1b; /* Dark blue background */
+  color: #ADB5BD; /* Light grey text */
+  padding: 60px 6% 30px 6%;
+  font-family: 'Aileron', sans-serif;
+}
+
+/* --- 2. Main 4-Column Layout --- */
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* 4 columns */
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 3. Column Content --- */
+.footer-heading {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 15px 0;
+}
+
+.footer-heading-small {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 15px 0;
+}
+
+.footer-description {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  color: #ADB5BD;
+  transition: color 0.3s;
+}
+.social-link:hover {
+  color: #FFFFFF;
+}
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-link,
+.footer-link-small {
+  color: #ADB5BD;
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+.footer-link:hover,
+.footer-link-small:hover {
+  color: #FFFFFF;
+}
+
+.footer-column.contact p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* --- 4. Bottom Bar --- */
+.footer-bottom {
+  border-top: 1px solid #343A40; /* Divider line */
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-legal {
+  flex: 2;
+  max-width: 60%;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+}
+
+.disclaimer {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #868E96;
+}
+
+.footer-policy-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link-small {
+  font-size: 14px;
+}
+
+/* --- 5. Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .footer-main {
+    /* 2 columns on tablet */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    /* 1 column on mobile */
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column-reverse; /* Stack links on top of legal */
+    gap: 20px;
+  }
+
+  .footer-legal {
+    max-width: 100%;
+  }
+
+  .footer-policy-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+}

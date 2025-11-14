@@ -1,0 +1,138 @@
+/* src/components/ContactCTA.css */
+
+/* --- 1. Main Section Wrapper --- */
+/* This outer wrapper provides the padding and centers the card */
+.cta-section-wrapper {
+  padding: 80px 6%;
+  background-color: #f8f9fc; /* Light bg to show the card's shadow */
+}
+
+/* --- 2. The CTA Card --- */
+.cta-section {
+  max-width: 900px;
+  margin: 0 auto; /* Center the card */
+  background-color: #FFC72C; /* Vibrant yellow */
+  border-radius: 24px; /* Large rounded corners */
+  padding: 60px;
+  text-align: center;
+  color: #222C50; /* Dark blue text */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 3. Header --- */
+.cta-heading {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.cta-subheading {
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px; /* Constrain width */
+  margin: 0 auto 30px auto;
+  color: #332A00; /* Darker text for readability on yellow */
+}
+
+/* --- 4. Buttons --- */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.cta-btn {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.cta-btn.primary {
+  /* "Schedule Consultation" */
+  background-color: transparent;
+  color: #222C50;
+  border: 1px solid #332A00;
+}
+
+.cta-btn.primary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn.secondary {
+  /* "Call Us Now" */
+  background-color: #ffffff;
+  color: #222C50;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn.secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 5. Divider --- */
+.cta-divider {
+  border: none;
+  height: 1px;
+  background-color: #332A00; /* Dark line */
+  opacity: 0.2;
+  margin-bottom: 30px;
+}
+
+/* --- 6. Contact Info --- */
+.cta-contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.cta-contact-link {
+  font-family: 'Aileron', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222C50;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s;
+}
+
+.cta-contact-link:hover {
+  opacity: 0.7;
+}
+
+.cta-contact-icon {
+  width: 18px;
+  height: 18px;
+  color: #1b2447; /* Will color the SVG */
+}
+
+/* --- 7. Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 40px 20px; /* Less padding on mobile */
+  }
+
+  .cta-heading {
+    font-size: 32px;
+  }
+
+  .cta-subheading {
+    font-size: 16px;
+  }
+
+  .cta-buttons {
+    flex-direction: column; /* Stack buttons */
+    gap: 15px;
+  }
+}
