@@ -60,7 +60,7 @@ function Hero() {
 
                         <div className="hero-stats">
                             <div className="stat">
-                                <span className="stat-value">$2.5B+</span>
+                                <span className="stat-value">Rs 2.5Cr+</span>
                                 <span className="stat-label">Assets Managed</span>
                             </div>
                             <div className="stat">

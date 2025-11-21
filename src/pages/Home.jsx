@@ -10,7 +10,6 @@ import Footer from '../Components/Home/Footer'
 function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <ServicesSection />
       <FinancialCalculators />

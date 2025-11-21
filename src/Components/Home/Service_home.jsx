@@ -7,10 +7,10 @@ import '../../CSS/ServicesSection.css';
 
 import MutualFundIcon from '../../assets/icons/mf.svg?react';
 import LifeInsuranceIcon from '../../assets/icons/lic.svg?react';
-import RetirementIcon from '../../assets/icons/retirement.svg?react';
-import AnalysisIcon from '../../assets/icons/analysis.svg?react';
-import EstateIcon from '../../assets/icons/estate.svg?react';
-import TaxIcon from '../../assets/icons/tax.svg?react';
+import HealthInsuranceIcon from '../../assets/icons/retirement.svg?react';
+import GeneralInsuranceIcon from '../../assets/icons/analysis.svg?react';
+// import EstateIcon from '../../assets/icons/estate.svg?react';
+// import TaxIcon from '../../assets/icons/tax.svg?react';
 
 
 const servicesList = [
@@ -20,29 +20,19 @@ const servicesList = [
     description: 'Diversified investment solutions with professional fund management to grow your wealth steadily.'
   },
   {
+    icon: HealthInsuranceIcon, // Make sure to import/create this icon
+    title: 'Health Insurance',
+    description: 'Complete health coverage plans to protect you and your family against medical emergencies and hospitalization costs.'
+  },
+  {
     icon: LifeInsuranceIcon,
-    title: 'LIC (Life Insurance)',
+    title: 'Life Insurance',
     description: 'Comprehensive life insurance plans that provide financial security and protection for your loved ones.'
   },
   {
-    icon: RetirementIcon,
-    title: 'Retirement Planning',
-    description: 'Secure your future with personalized retirement strategies and income planning.'
-  },
-  {
-    icon: AnalysisIcon, 
-    title: 'Financial Analysis',
-    description: 'In-depth financial analysis and reporting to help you make informed decisions.'
-  },
-  {
-    icon: EstateIcon,
-    title: 'Estate Planning',
-    description: 'Protect your legacy with comprehensive estate planning and wealth transfer strategies.'
-  },
-  {
-    icon: TaxIcon,
-    title: 'Tax Strategy',
-    description: 'Minimize tax liability with expert tax planning and optimization strategies.'
+    icon: GeneralInsuranceIcon, // Make sure to import/create this icon
+    title: 'General Insurance',
+    description: 'Protection for your non-life assets including vehicle, home, and travel insurance against unforeseen events.'
   }
 ];
 

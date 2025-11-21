@@ -13,7 +13,7 @@ import RetentionIcon from '../../assets/icons/retention-icon.svg?react';
 const statsData = [
   {
     icon: AssetsIcon,
-    value: '$2.5B+',
+    value: 'Rs 2.5Cr+',
     label: 'Assets Under Management',
     description: 'Trusted with billions in client assets'
   },

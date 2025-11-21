@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis'; // 1. Import Lenis
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Layout from './Components/Layout';
 import './CSS/global.css';
-// import Services from './pages/Services';
+import Services from './pages/Services';
 // import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 function App() {
@@ -49,12 +50,18 @@ function App() {
   }, []); 
 
   return (
-    <BrowserRouter>
+   <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/services" element={<Services />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
-        <Route path="*" element={<NotFound />} />
+        {/* Wrap everything in the Layout */}
+        <Route element={<Layout />}>
+          
+          {/* These pages now load INSIDE the Layout's <Outlet /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          {/* <Route path="/about" element={<About />} /> */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
+          
+        </Route>
       </Routes>
     </BrowserRouter>
   )

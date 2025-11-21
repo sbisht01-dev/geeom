@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../CSS/Footer.css'; // Import the dedicated CSS file
+import '../../CSS/Footer.css'; // Import the dedicated CSS file
 
 // import FacebookIcon from '../assets/icons/facebook.svg?react';
 // import TwitterIcon from '../assets/icons/twitter.svg?react';
@@ -16,7 +16,7 @@ const Footer = () => {
         
         {/* --- Column 1: Brand & Socials --- */}
         <div className="footer-column brand">
-          <h3 className="footer-heading">FinanceHub</h3>
+          <h3 className="footer-heading">GEEOM Securities</h3>
           <p className="footer-description">
             Building financial success through expert guidance and personalized
             solutions since 1999.
@@ -68,7 +68,7 @@ const Footer = () => {
       {/* --- Bottom Bar --- */}
       <div className="footer-bottom">
         <div className="footer-legal">
-          <p className="copyright">© {new Date().getFullYear()} FinanceHub. All rights reserved.</p>
+          <p className="copyright">© {new Date().getFullYear()} GEEOM Securities. All rights reserved.</p>
           <p className="disclaimer">
             Securities offered through registered representatives. Investment advisory services offered through FinanceHub Advisory Services. FinanceHub and its affiliates do not provide tax or legal advice.
           </p>

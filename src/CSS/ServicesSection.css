@@ -43,9 +43,9 @@
 .services-grid {
   display: grid;
   /* Create 3 columns of equal size */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(2, 1fr); 
   gap: 30px; /* Space between cards */
-  max-width: 100%;
+  max-width: 60%;
   margin: 0 auto; /* Center the grid */
 }
 
