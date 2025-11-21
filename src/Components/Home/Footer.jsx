@@ -61,7 +61,7 @@ const Footer = () => {
           <h4 className="footer-heading-small">Contact</h4>
           <p>123 Financial Plaza<br />New York, NY 10004</p>
           <a href="tel:+15551234567" className="footer-link">+1 (555) 123-4567</a>
-          <a href="mailto:info@financehub.com" className="footer-link">info@financehub.com</a>
+          <a href="mailto:info@geeomsecurities.com" className="footer-link">info@geeomsecurities.com</a>
         </div>
       </div>
 
@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="footer-legal">
           <p className="copyright">© {new Date().getFullYear()} GEEOM Securities. All rights reserved.</p>
           <p className="disclaimer">
-            Securities offered through registered representatives. Investment advisory services offered through FinanceHub Advisory Services. FinanceHub and its affiliates do not provide tax or legal advice.
+            Securities offered through registered representatives. Investment advisory services offered through geeomsecurities Advisory Services. geeomsecurities and its affiliates do not provide tax or legal advice.
           </p>
         </div>
         <div className="footer-policy-links">

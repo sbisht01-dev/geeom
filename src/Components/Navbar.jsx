@@ -38,7 +38,7 @@ const Navbar = ({ activePage }) => {
     <Nav>
       <Brand>
         <StyledLink to="/">
-          <Title>GEEOM</Title>
+          <Title>GEEOM Securities</Title>
         </StyledLink>
       </Brand>
 

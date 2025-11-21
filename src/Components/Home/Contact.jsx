@@ -41,9 +41,9 @@ const ContactCTA = () => {
             <PhoneIcon className="cta-contact-icon" />
             +1 (555) 123-4567
           </a>
-          <a href="mailto:info@financehub.com" className="cta-contact-link">
+          <a href="mailto:info@geeomsecurities.com" className="cta-contact-link">
             <EmailIcon className="cta-contact-icon" />
-            info@financehub.com
+            info@geeomsecurities.com
           </a>
         </div>
 
