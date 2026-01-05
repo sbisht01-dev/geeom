@@ -2,41 +2,53 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-// Make sure you have a corresponding CSS file
 import '../../CSS/ServicesSection.css'; 
 
+// --- Icon Imports ---
 import MutualFundIcon from '../../assets/icons/mf.svg?react';
 import LifeInsuranceIcon from '../../assets/icons/lic.svg?react';
 import HealthInsuranceIcon from '../../assets/icons/retirement.svg?react';
-import GeneralInsuranceIcon from '../../assets/icons/analysis.svg?react';
-// import EstateIcon from '../../assets/icons/estate.svg?react';
-// import TaxIcon from '../../assets/icons/tax.svg?react';
+
+// --- NEW ICONS (Ensure these files exist in your assets folder) ---
+// You might need to rename these imports to match your actual file names
+import PreIpoIcon from '../../assets/icons/analysis.svg?react'; // Placeholder: Replace with your actual Pre-IPO icon
+import WealthIcon from '../../assets/icons/estate.svg?react';   // Placeholder: Replace with your actual Wealth icon
+import TaxIcon from '../../assets/icons/tax.svg?react';         // Placeholder: Replace with your actual Tax icon
 
 
 const servicesList = [
   {
     icon: MutualFundIcon,
-    title: 'Mutual Fund',
+    title: 'Mutual Funds',
     description: 'Diversified investment solutions with professional fund management to grow your wealth steadily.'
   },
   {
-    icon: HealthInsuranceIcon, // Make sure to import/create this icon
+    icon: PreIpoIcon, // New Service
+    title: 'Pre-IPO Unlisted Shares',
+    description: 'Exclusive access to high-potential companies before they go public, offering significant growth opportunities.'
+  },
+  {
+    icon: WealthIcon, // New Service
+    title: 'Wealth Management',
+    description: 'Personalized strategies to manage, grow, and preserve your wealth across various asset classes.'
+  },
+  {
+    icon: TaxIcon, // New Service
+    title: 'Tax Planning',
+    description: 'Strategic tax saving solutions to maximize your post-tax returns while ensuring full compliance.'
+  },
+  {
+    icon: HealthInsuranceIcon,
     title: 'Health Insurance',
-    description: 'Complete health coverage plans to protect you and your family against medical emergencies and hospitalization costs.'
+    description: 'Complete health coverage plans to protect you and your family against medical emergencies.'
   },
   {
     icon: LifeInsuranceIcon,
     title: 'Life Insurance',
     description: 'Comprehensive life insurance plans that provide financial security and protection for your loved ones.'
-  },
-  {
-    icon: GeneralInsuranceIcon, // Make sure to import/create this icon
-    title: 'General Insurance',
-    description: 'Protection for your non-life assets including vehicle, home, and travel insurance against unforeseen events.'
   }
 ];
 
-// Renamed component to match your file
 const Service_home = () => {
   return (
     <section className="services-section">
@@ -53,7 +65,7 @@ const Service_home = () => {
         </p>
       </div>
 
-      {/* --- 6-Card Grid --- */}
+      {/* --- Grid --- */}
       <div className="services-grid">
         {servicesList.map((service) => {
           const IconComponent = service.icon;
@@ -61,6 +73,7 @@ const Service_home = () => {
           return (
             <div key={service.title} className="service-card">
               <div className="card-icon-wrapper">
+                {/* Render the imported SVG component */}
                 <IconComponent className="card-svg-icon" />
               </div>
               <h3 className="card-title">{service.title}</h3>

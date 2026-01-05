@@ -37,7 +37,7 @@ function Hero() {
                 <section className="hero" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="hero-content">
 
-                        <span className="hero-tag">Trusted by 10,000+ clients worldwide</span>
+                        <span className="hero-tag">Trusted by 2,000+ clients worldwide</span>
 
                         <h1 className="hero-heading">
                             Your Financial Future<br />Starts Here
@@ -60,11 +60,11 @@ function Hero() {
 
                         <div className="hero-stats">
                             <div className="stat">
-                                <span className="stat-value">Rs 2.5Cr+</span>
+                                <span className="stat-value">Rs 15Cr+</span>
                                 <span className="stat-label">Assets Managed</span>
                             </div>
                             <div className="stat">
-                                <span className="stat-value">25+</span>
+                                <span className="stat-value">30+</span>
                                 <span className="stat-label">Years Experience</span>
                             </div>
                             <div className="stat">

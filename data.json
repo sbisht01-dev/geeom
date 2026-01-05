@@ -1,0 +1,35 @@
+{
+  "contact_info": {
+    "addressLine1": "Sevakendra near Kaali Mandir",
+    "addressLine2": "Meghahatuburu, West Singhbhum",
+    "addressLine3": "Jharkhand, 833223",
+    "phone": "0659625",
+    "email": "info@geeomsecurities.com",
+    "whatsapp": "+916596250000"
+  },
+  "social_links": {
+    "facebook": "https://facebook.com/geeom",
+    "twitter": "https://twitter.com/geeom",
+    "linkedin": "https://linkedin.com/company/geeom",
+    "instagram": "https://instagram.com/geeom"
+  },
+  "business_hours": {
+    "weekdays": "9:00 AM - 6:00 PM",
+    "saturday": "10:00 AM - 2:00 PM",
+    "sunday": "Closed"
+  },
+  "live_rates": {
+    "fd_interest_rate": "7.5%",
+    "senior_citizen_bonus": "0.50%",
+    "last_updated": "2026-01-05"
+  },
+  "announcements": {
+    "show_banner": true,
+    "message": "New Pre-IPO shares of HDB Financial now available!",
+    "link": "/services"
+  },
+  "seo_metadata": {
+    "site_title": "GEEOM Securities | Expert Financial Planning",
+    "description": "Trusted financial guidance for Mutual Funds, Pre-IPO shares, and Wealth Management in Jharkhand."
+  }
+}

@@ -1,40 +1,56 @@
 // src/components/Footer.jsx
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../../CSS/Footer.css'; // Import the dedicated CSS file
-
-// import FacebookIcon from '../assets/icons/facebook.svg?react';
-// import TwitterIcon from '../assets/icons/twitter.svg?react';
-// import LinkedInIcon from '../assets/icons/linkedin.svg?react';
-// import InstagramIcon from '../assets/icons/instagram.svg?react';
+import '../../CSS/Footer.css';
+import { ref, onValue } from "firebase/database";
+import { db } from "../../firebase"; // Adjust path to your firebase.js file
 
 const Footer = () => {
+  // --- State for Contact Info ---
+  // Default values act as a "fallback" while the data loads
+  const [contactInfo, setContactInfo] = useState({
+    addressLine1: "Loading...",
+    addressLine2: "",
+    addressLine3: "",
+    phone: "",
+    email: ""
+  });
+
+  // --- Fetch Data from Firebase ---
+  useEffect(() => {
+    // Reference the 'contact_info' node in your JSON
+    const contactRef = ref(db, 'contact_info');
+
+    // Subscribe to changes
+    const unsubscribe = onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setContactInfo({
+          addressLine1: data.addressLine1,
+          addressLine2: data.addressLine2,
+          addressLine3: data.addressLine3,
+          phone: data.phone,
+          email: data.email,
+        });
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
   return (
     <footer className="footer">
       <div className="footer-main">
-        
-        {/* --- Column 1: Brand & Socials --- */}
+
+        {/* --- Column 1: Brand --- */}
         <div className="footer-column brand">
-          <h3 className="footer-heading">GEEOM Securities</h3>
+          <h3 className="footer-heading">GEEOM</h3>
           <p className="footer-description">
             Building financial success through expert guidance and personalized
-            solutions since 1999.
+            solutions.
           </p>
-          {/* <div className="footer-socials">
-            <a href="#" aria-label="Facebook" className="social-link">
-              <FacebookIcon className="social-icon" />
-            </a>
-            <a href="#" aria-label="Twitter" className="social-link">
-              <TwitterIcon className="social-icon" />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="social-link">
-              <LinkedInIcon className="social-icon" />
-            </a>
-            <a href="#" aria-label="Instagram" className="social-link">
-              <InstagramIcon className="social-icon" />
-            </a>
-          </div> */}
         </div>
 
         {/* --- Column 2: Quick Links --- */}
@@ -49,20 +65,31 @@ const Footer = () => {
         {/* --- Column 3: Services --- */}
         <div className="footer-column links">
           <h4 className="footer-heading-small">Services</h4>
+          <Link to="/services/mutual-funds" className="footer-link">Mutual Funds</Link>
           <Link to="/services/wealth-management" className="footer-link">Wealth Management</Link>
-          <Link to="/services/investment-planning" className="footer-link">Investment Planning</Link>
-          <Link to="/services/retirement-planning" className="footer-link">Retirement Planning</Link>
-          <Link to="/services/estate-planning" className="footer-link">Estate Planning</Link>
-          <Link to="/services/tax-strategy" className="footer-link">Tax Strategy</Link>
+          <Link to="/services/insurance" className="footer-link">Insurance</Link>
+          <Link to="/services/tax-planning" className="footer-link">Tax Planning</Link>
         </div>
 
-        {/* --- Column 4: Contact --- */}
+        {/* --- Column 4: Contact (DYNAMIC FROM FIREBASE) --- */}
         <div className="footer-column contact">
           <h4 className="footer-heading-small">Contact</h4>
-          <p>123 Financial Plaza<br />New York, NY 10004</p>
-          <a href="tel:+15551234567" className="footer-link">+1 (555) 123-4567</a>
-          <a href="mailto:info@geeomsecurities.com" className="footer-link">info@geeomsecurities.com</a>
+
+          <p>
+            {contactInfo.addressLine1}<br />
+            {contactInfo.addressLine2}<br />
+            {contactInfo.addressLine3}
+          </p>
+
+          <a href={`tel:${contactInfo.phone}`} className="footer-link">
+            {contactInfo.phone}
+          </a>
+
+          <a href={`mailto:${contactInfo.email}`} className="footer-link">
+            {contactInfo.email}
+          </a>
         </div>
+
       </div>
 
       {/* --- Bottom Bar --- */}
@@ -70,7 +97,7 @@ const Footer = () => {
         <div className="footer-legal">
           <p className="copyright">© {new Date().getFullYear()} GEEOM Securities. All rights reserved.</p>
           <p className="disclaimer">
-            Securities offered through registered representatives. Investment advisory services offered through geeomsecurities Advisory Services. geeomsecurities and its affiliates do not provide tax or legal advice.
+            Securities offered through registered representatives. Investment advisory services offered through GEEOM Advisory Services.
           </p>
         </div>
         <div className="footer-policy-links">

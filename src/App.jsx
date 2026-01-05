@@ -54,12 +54,9 @@ function App() {
       <Routes>
         {/* Wrap everything in the Layout */}
         <Route element={<Layout />}>
-          
-          {/* These pages now load INSIDE the Layout's <Outlet /> */}
-          <Route path="/" element={<Home />} />
+       <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          {/* <Route path="/contact" element={<Contact />} /> */}
+  
           
         </Route>
       </Routes>

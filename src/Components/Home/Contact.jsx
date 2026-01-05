@@ -1,14 +1,41 @@
 // src/components/ContactCTA.jsx
 
-import React from 'react';
-import { Link } from 'react-router-dom'; // Use for internal links
-import '../../CSS/Contact.css'; // Import the dedicated CSS file
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../../CSS/Contact.css';
 
-// --- Import your SVG icons ---
+// Firebase Imports
+import { ref, onValue } from "firebase/database";
+import { db } from "../../firebase"; 
+
+// SVG Icons
 import PhoneIcon from '../../assets/icons/phone.svg?react';
 import EmailIcon from '../../assets/icons/email.svg?react';
 
 const ContactCTA = () => {
+  // --- 1. State for Dynamic Contact Data ---
+  const [contactData, setContactData] = useState({
+    phone: "Loading...",
+    email: "Loading..."
+  });
+
+  // --- 2. Fetch Data from Firebase ---
+  useEffect(() => {
+    const contactRef = ref(db, 'contact_info');
+
+    const unsubscribe = onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setContactData({
+          phone: data.phone,
+          email: data.email,
+        });
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <section className="cta-section-wrapper">
       <div className="cta-section">
@@ -25,9 +52,8 @@ const ContactCTA = () => {
           <Link to="/schedule" className="cta-btn primary">
             Schedule Consultation &rarr;
           </Link>
-          {/* Use <a> for an external phone link */}
-          <a href="tel:+15551234567" className="cta-btn secondary">
-            {/* You can add an inline SVG/icon here if you like */}
+          {/* Dynamic Phone Link for the Button */}
+          <a href={`tel:${contactData.phone}`} className="cta-btn secondary">
             📞 Call Us Now
           </a>
         </div>
@@ -37,13 +63,16 @@ const ContactCTA = () => {
 
         {/* --- Contact Info --- */}
         <div className="cta-contact-info">
-          <a href="tel:+15551234567" className="cta-contact-link">
+          {/* Dynamic Phone Link */}
+          <a href={`tel:${contactData.phone}`} className="cta-contact-link">
             <PhoneIcon className="cta-contact-icon" />
-            +1 (555) 123-4567
+            {contactData.phone}
           </a>
-          <a href="mailto:info@geeomsecurities.com" className="cta-contact-link">
+          
+          {/* Dynamic Email Link */}
+          <a href={`mailto:${contactData.email}`} className="cta-contact-link">
             <EmailIcon className="cta-contact-icon" />
-            info@geeomsecurities.com
+            {contactData.email}
           </a>
         </div>
 
