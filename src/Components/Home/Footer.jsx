@@ -35,7 +35,7 @@ const Footer = () => {
         });
       }
     });
-
+    
     // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
