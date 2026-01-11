@@ -32,20 +32,29 @@
 
 /* --- Grid Layout --- */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Using flexbox allows us to use justify-content: center */
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line */
+  justify-content: center; /* Centers cards if there are only 2 or 3 */
   gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* --- Team Card --- */
 .team-card {
+  /* Give each card a fixed base width so they don't stretch too far */
+  flex: 0 1 280px; 
+  
   background: #FFFFFF;
   border: 1px solid #F3F4F6;
   border-radius: 16px;
   padding: 30px 20px;
   text-align: center;
   transition: all 0.3s ease;
-  height: 100%; /* Ensures equal height in row */
+  
+  /* Standardizes height so they look uniform in a row */
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card:hover {
@@ -161,9 +170,9 @@
   }
 }
 
-@media (max-width: 576px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+@media (max-width: 600px) {
+  .team-card {
+    flex: 1 1 100%; /* Take full width on small phones */
+    max-width: 400px;
   }
 }
