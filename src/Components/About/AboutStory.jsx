@@ -1,9 +1,7 @@
 // src/components/about/AboutStory.jsx
 import React from 'react';
 import '../../CSS/AboutStory.css';
-// Replace with your actual meeting image or use a placeholder
 import StoryImage from '../../assets/our-story-meeting.jpeg';
-
 import AssetsIcon from '../../assets/icons/assets-icon.svg?react';
 import ClientsIcon from '../../assets/icons/clients-icon.svg?react';
 import YearsIcon from '../../assets/icons/years-icon.svg?react';
@@ -88,9 +86,9 @@ const AboutStory = () => {
 
                         <div className="story-text">
                             <p>
-                                GEEOM was founded in 1999 with a simple mission: to provide accessible,
+                                GEEOM was founded with a simple mission: to provide accessible,
                                 expert financial guidance to help people achieve their dreams. What started
-                                as a small advisory firm has grown into a trusted partner for over 10,000
+                                as a small advisory firm has grown into a trusted partner for over 2,000
                                 clients nationwide.
                             </p>
                             <p>
@@ -100,7 +98,7 @@ const AboutStory = () => {
                                 and making financial planning transparent and approachable.
                             </p>
                             <p>
-                                Today, we manage over ₹2.5 billion in client assets and maintain a 98%
+                                Today, we manage over ₹15Cr in client assets and maintain a 98%
                                 client retention rate. Our success is measured not in numbers alone, but
                                 in the peace of mind and financial security we help our clients achieve.
                             </p>

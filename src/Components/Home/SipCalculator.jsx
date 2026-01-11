@@ -2,17 +2,14 @@ import React, { useState, useEffect } from 'react';
 import '../../CSS/FinancialCalculators.css'; 
 
 const SipCalculator = () => {
-  // State for the inputs
   const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
   const [period, setPeriod] = useState(10);
   const [rate, setRate] = useState(12);
 
-  // State for the calculated outputs
   const [totalInvestment, setTotalInvestment] = useState(0);
   const [estimatedReturns, setEstimatedReturns] = useState(0);
   const [futureValue, setFutureValue] = useState(0);
 
-  // Function to format numbers to Indian Rupee style (e.g., 1,00,000)
   const formatAsRupee = (number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -22,16 +19,36 @@ const SipCalculator = () => {
   };
 
   useEffect(() => {
-    const i = (rate / 100) / 12; // Monthly interest rate
-    const n = period * 12; // Number of months
+    // 1. Calculate Monthly Rate based on Effective Annual Rate (CAGR)
+    // Formula: (1 + r)^(1/12) - 1
+    // This matches Groww's logic where 12% means exactly 12% growth per year, not 12.68%
+    const i = Math.pow(1 + rate / 100, 1 / 12) - 1;
+    
+    const n = period * 12; 
 
-    const fv = monthlyInvestment * (Math.pow(1 + i, n) - 1) / i * (1 + i);
+    let fv = 0;
+    // Handle case where rate is 0 to avoid division by zero/NaN
+    if (rate === 0) {
+      fv = monthlyInvestment * n;
+    } else {
+      // SIP Future Value Formula (Annuity Due - Investment at start of month)
+      fv = monthlyInvestment * ( (Math.pow(1 + i, n) - 1) / i ) * (1 + i);
+    }
+    
     const ti = monthlyInvestment * n;
-    const er = fv - ti;
 
-    setFutureValue(fv);
+    // 2. Rounding Logic
+    // Round the Total Value first to standard integer
+    const roundedFv = Math.round(fv);
+    
+    // Calculate Returns by subtracting Investment from Total
+    // This guarantees that (Investment + Returns) always equals Total in the display
+    const er = roundedFv - ti;
+
+    setFutureValue(roundedFv);
     setTotalInvestment(ti);
     setEstimatedReturns(er);
+
   }, [monthlyInvestment, period, rate]);
 
   return (
@@ -42,7 +59,7 @@ const SipCalculator = () => {
       </p>
 
       <div className="calculator-body">
-        {/* --- Input Fields (Left) --- */}
+        {/* --- Input Fields --- */}
         <div className="calculator-inputs">
           <div className="input-group">
             <label htmlFor="monthlyInvestment">Monthly Investment (₹)</label>
@@ -73,7 +90,7 @@ const SipCalculator = () => {
           </div>
         </div>
 
-        {/* --- Output Display (Right) --- */}
+        {/* --- Output Display --- */}
         <div className="calculator-outputs">
           <div className="output-box">
             <span className="output-label">Total Investment</span>
@@ -90,7 +107,7 @@ const SipCalculator = () => {
         </div>
       </div>
       <p className="calculator-note">
-        *Returns are illustrative and based on assumed rate of {`${rate}`}% p.a. Actual returns may vary based on market conditions.
+        *Returns are calculated using CAGR methodology matching standard market tools.
       </p>
     </div>
   );

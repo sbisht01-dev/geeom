@@ -2,111 +2,110 @@
 import React from 'react';
 import '../../CSS/ServicesList.css';
 
-// --- Import Icons (Replace with your actual SVGs) ---
-// Using placeholders for now to ensure the code runs immediately for you
+// --- Import Icons (Ensure these exist in your assets folder) ---
 import MutualFundIcon from '../../assets/icons/mf.svg?react';
 import LicIcon from '../../assets/icons/lic.svg?react'; 
-import RetirementIcon from '../../assets/icons/retirement.svg?react';
-import AnalysisIcon from '../../assets/icons/analysis.svg?react';
-import EstateIcon from '../../assets/icons/estate.svg?react';
+import RetirementIcon from '../../assets/icons/retirement.svg?react'; // Used for Health/Life placeholder
+import AnalysisIcon from '../../assets/icons/analysis.svg?react';    // Used for Pre-IPO
+import EstateIcon from '../../assets/icons/estate.svg?react';        // Used for Wealth Mgmt
 import TaxIcon from '../../assets/icons/tax.svg?react';
 
 const servicesData = [
   {
     id: 'mutual-fund',
-    title: 'Mutual Fund',
-    subtitle: 'Diversified investment solutions with professional fund management.',
+    title: 'Mutual Funds',
+    subtitle: 'Diversified investment solutions with professional fund management to grow your wealth steadily.',
     icon: MutualFundIcon, 
-    description: "Unlock the power of wealth creation through our expertly curated mutual fund portfolios. Whether you're saving for equity funds, debt funds, or hybrid funds, we provide comprehensive guidance and active management.",
+    description: "Build a robust portfolio with our expertly curated mutual fund schemes. Whether you are looking for high-growth equity funds, stable debt funds, or balanced hybrid options, we help you invest with discipline through SIPs or lump sums to achieve your long-term goals.",
     features: [
-      "Wide range of fund options (Equity, Debt, Hybrid)",
-      "Systematic Investment Plan (SIP) facilities",
-      "Regular portfolio rebalancing",
-      "Performance tracking and consolidated reports",
-      "Goal-based savings planning",
-      "Zero hassle documentation support"
+      "Curated Equity, Debt, & Hybrid funds",
+      "Systematic Investment Plans (SIP)",
+      "Periodic portfolio rebalancing",
+      "Goal-based investment mapping",
+      "Detailed performance tracking",
+      "Hassle-free digital KYC & onboarding"
     ],
-    footerText: "Ideal for: Individuals seeking professional wealth creation through disciplined investing."
+    footerText: "Ideal for: Investors seeking professional management and disciplined wealth creation."
   },
   {
-    id: 'lic',
-    title: 'LIC (Life Insurance)',
-    subtitle: 'Comprehensive life insurance plans that provide financial security.',
-    icon: LicIcon, 
-    description: "Life Insurance Corporation (LIC) policies offer both protection and investment benefits, ensuring financial security for your family. We help you choose the right policy that matches your life stage and needs.",
-    features: [
-      "Term insurance for pure protection",
-      "Endowment plans for savings",
-      "Money back policies for periodic returns",
-      "Pension plans for retirement security",
-      "Child plans for education funding",
-      "Whole life insurance coverage"
-    ],
-    footerText: "Ideal for: Protecting your family's financial future against uncertainties."
-  },
-  {
-    id: 'retirement',
-    title: 'Retirement Planning',
-    subtitle: 'Secure your future with personalized retirement strategies.',
-    icon: RetirementIcon, 
-    description: "Planning for retirement requires a strategic approach. We help you determine how much you need to save, optimize your retirement accounts, and create a sustainable income strategy for your golden years.",
-    features: [
-      "Retirement corpus estimation",
-      "NPS and PF consultation",
-      "Asset allocation strategies",
-      "Inflation-adjusted planning",
-      "Post-retirement income planning",
-      "Legacy and estate considerations"
-    ],
-    footerText: "Ideal for: Individuals wanting a stress-free and financially independent retirement."
-  },
-  {
-    id: 'financial-analysis',
-    title: 'Financial Analysis',
-    subtitle: 'In-depth financial analysis and reporting to optimize your growth.',
+    id: 'pre-ipo',
+    title: 'Pre-IPO Unlisted Shares',
+    subtitle: 'Exclusive access to high-potential companies before they go public, offering significant growth opportunities.',
     icon: AnalysisIcon, 
-    description: "Understanding your current financial health is crucial for making smart decisions. We provide comprehensive financial analysis to identify gaps, risks, and opportunities in your portfolio.",
+    description: "Get a head start on the market by investing in high-growth companies before they list on the stock exchange. We provide access to exclusive unlisted shares of top-tier companies, allowing you to unlock immense value early in their growth journey.",
     features: [
-      "Comprehensive portfolio review",
-      "Cash flow modeling and tracking",
-      "Risk assessment and mitigation",
-      "Debt management advice",
-      "Major goal mapping",
-      "Personalized growth roadmaps"
+      "Access to top-tier unlisted companies",
+      "Detailed company valuation reports",
+      "Early-stage entry advantage",
+      "Guidance on exit strategies",
+      "Seamless transfer & holding support",
+      "Regular updates on IPO timelines"
     ],
-    footerText: "Ideal for: Anyone seeking a clear picture of their financial health and growth opportunities."
+    footerText: "Ideal for: Aggressive investors looking for high-growth opportunities beyond the stock market."
   },
   {
-    id: 'estate-planning',
-    title: 'Estate Planning',
-    subtitle: 'Ensure your legacy with professional estate planning services.',
+    id: 'wealth-management',
+    title: 'Wealth Management',
+    subtitle: 'Personalized strategies to manage, grow, and preserve your wealth across various asset classes.',
     icon: EstateIcon, 
-    description: "Proper estate planning ensures your assets are distributed according to your wishes while minimizing taxes and complications. We guide you through the process of securing your legacy.",
+    description: "True wealth management goes beyond just investing. We take a holistic view of your financial life—integrating investments, estate planning, and risk management—to build a comprehensive strategy that preserves your legacy and grows your net worth.",
     features: [
-      "Will creation and management",
-      "Trust setup and advisory",
-      "Succession planning",
-      "Beneficiary designation",
-      "Asset transfer strategies",
-      "Legal and tax compliance check"
+      "Customized asset allocation",
+      "Portfolio risk assessment",
+      "Retirement & legacy planning",
+      "Cash flow management",
+      "Regular financial health checkups",
+      "Dedicated relationship manager"
     ],
-    footerText: "Ideal for: Individuals wishing to protect their assets and secure their loved ones."
+    footerText: "Ideal for: HNIs and families seeking 360-degree financial stewardship."
   },
   {
-    id: 'tax-strategy',
-    title: 'Tax Strategy',
-    subtitle: 'Maximize your wealth with expert tax planning and optimization.',
+    id: 'tax-planning',
+    title: 'Tax Planning',
+    subtitle: 'Strategic tax saving solutions to maximize your post-tax returns while ensuring full compliance.',
     icon: TaxIcon, 
-    description: "Taxes can significantly impact your investment returns. Our tax experts help you minimize your liability through strategic planning, ensuring full compliance with tax laws.",
+    description: "Don't let taxes erode your hard-earned returns. Our experts help you navigate the complex tax landscape with legal, efficient strategies. We optimize your investments under Section 80C, capital gains, and other provisions to ensure you keep more of what you earn.",
     features: [
+      "Section 80C & 80D optimization",
+      "Capital gains tax harvesting",
       "Tax-efficient investment selection",
-      "Capital gains optimization",
-      "Retirement account tax benefits",
-      "Charitable giving strategies",
-      "Year-round tax planning",
-      "Filing and compliance support"
+      "ITR filing assistance",
+      "Compliance review & auditing",
+      "Year-end tax saving strategies"
     ],
-    footerText: "Ideal for: Taxpayers looking to optimize their post-tax returns legally."
+    footerText: "Ideal for: Salaried and business individuals wanting to minimize tax liability legally."
+  },
+  {
+    id: 'health-insurance',
+    title: 'Health Insurance',
+    subtitle: 'Complete health coverage plans to protect you and your family against medical emergencies.',
+    icon: RetirementIcon, // Using RetirementIcon as a placeholder for Health/Protection
+    description: "Medical emergencies can strike without warning. Our comprehensive health insurance plans ensure that you have access to the best medical care without draining your savings. From cashless hospitalization to critical illness covers, we secure your physical and financial health.",
+    features: [
+      "Cashless hospitalization network",
+      "Critical illness cover",
+      "Family floater plans",
+      "Pre & post-hospitalization cover",
+      "Annual health checkup benefits",
+      "Claims settlement support"
+    ],
+    footerText: "Ideal for: Every individual and family to safeguard against rising healthcare costs."
+  },
+  {
+    id: 'life-insurance',
+    title: 'Life Insurance',
+    subtitle: 'Comprehensive life insurance plans that provide financial security and protection for your loved ones.',
+    icon: LicIcon, 
+    description: "Secure your family's future even in your absence. We offer a range of life insurance products—from pure term plans for high coverage to endowment and money-back policies that combine protection with savings—ensuring your loved ones are always financially stable.",
+    features: [
+      "High-cover Term Insurance",
+      "Endowment & Savings plans",
+      "Child education policies",
+      "Whole life coverage options",
+      "Riders for accidental disability",
+      "Guaranteed payout benefits"
+    ],
+    footerText: "Ideal for: Breadwinners looking to secure their family's financial future."
   }
 ];
 
