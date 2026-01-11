@@ -5,9 +5,10 @@ import Home from './pages/Home';
 import Layout from './Components/Layout';
 import './CSS/global.css';
 import Services from './pages/Services';
-// import Contact from './pages/Contact';
+import Contact from './pages/Contact';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
+import ContactUs from './pages/Contact';
 function App() {
 
   // --- Lenis Smooth Scroll Setup ---
@@ -58,6 +59,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
 
 
         </Route>

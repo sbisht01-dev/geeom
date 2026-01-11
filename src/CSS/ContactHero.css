@@ -1,0 +1,69 @@
+/* src/components/contact/ContactHero.css */
+
+.contact-hero-section {
+    /* Warm, minimal gradient consistent with other pages */
+    background: linear-gradient(135deg, #fff6da 0%, #FFFFFF 100%);
+
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 40vh;
+    /* Adjust height as needed */
+}
+
+.contact-hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Aileron', sans-serif;
+}
+
+/* --- Badge --- */
+.contact-badge {
+     display: inline-block;
+  background-color: #FFF9E0; /* Soft yellow tag */
+  color: #D4A017;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Title --- */
+.contact-title {
+    font-family: 'Anek Latin', sans-serif;
+    font-weight: 800;
+    color: #0D131A;
+    /* Dark Navy/Black */
+    line-height: 1.15;
+    margin-bottom: 20px;
+    /* Fluid Typography: Text scales between 36px and 64px based on screen size */
+    font-size: clamp(36px, 5vw, 64px);
+}
+
+/* --- Description --- */
+.contact-desc {
+    font-size: clamp(16px, 2vw, 18px);
+    color: #4B5563;
+    /* Soft Grey */
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .contact-hero-section {
+        padding: 80px 20px;
+    }
+
+    .mobile-break {
+        display: block;
+        /* Forces line break on smaller screens for better layout */
+    }
+}
