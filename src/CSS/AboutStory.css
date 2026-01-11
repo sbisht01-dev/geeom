@@ -1,0 +1,321 @@
+/* src/components/about/AboutStory.css */
+
+.about-story-section {
+  padding: 100px 20px;
+  background-color: #FFFFFF;
+  font-family: 'Aileron', sans-serif;
+}
+
+.about-story-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center; /* Vertically center the text with the image */
+  gap: 80px; /* Space between image and text */
+}
+
+/* --- Image Column --- */
+.story-image-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.story-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  /* Soft shadow as seen in the screenshot */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); 
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: Subtle grey backdrop effect behind image */
+.story-img-backdrop {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: -20px;
+  bottom: -20px;
+  background-color: #F3F4F6;
+  border-radius: 20px;
+  z-index: 1;
+  display: none; /* Uncomment if you want the extra decorative layer */
+}
+
+/* --- Content Column --- */
+.story-content {
+  flex: 1;
+}
+
+.story-title {
+  font-family: 'Anek Latin', sans-serif; /* Keep headings distinct or use Aileron */
+  font-size: 36px;
+  font-weight: 800;
+  color: #0D131A;
+  margin-bottom: 24px;
+}
+
+.story-text p {
+  font-size: 16px;
+  line-height: 1.8; /* Good readability */
+  color: #4B5563; /* Dark Grey */
+  margin-bottom: 20px;
+}
+
+.story-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .about-story-container {
+    flex-direction: column; /* Stack image on top of text */
+    gap: 40px;
+  }
+
+  .story-image-wrapper {
+    width: 100%;
+    max-width: 600px; /* Limit image width on tablet */
+    margin: 0 auto;
+  }
+  
+  .story-content {
+    text-align: center; /* Center text on mobile for better flow */
+  }
+
+  .story-text p {
+    text-align: left; /* Keep paragraphs left-aligned for readability */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-story-section {
+    padding: 60px 20px;
+  }
+  
+  .story-title {
+    font-size: 28px;
+  }
+}
+
+.values-section {
+  padding: 80px 20px;
+  background-color: #FAFAFA; /* Light grey background */
+  font-family: 'Aileron', sans-serif;
+}
+
+.values-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0D131A;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #4B5563;
+  font-size: 16px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 Columns on Desktop */
+  gap: 30px;
+}
+
+.value-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  transition: transform 0.2s;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.value-icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: #fff3bf; 
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.value-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0D131A;
+}
+
+.value-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4B5563;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+}
+
+/* src/components/TrackRecord.css */
+
+/* --- 1. Section Container --- */
+.track-record-section {
+  background-color: #FFC72C; /* The vibrant yellow background */
+  padding: 80px 6%; /* Top/bottom padding, 6% side padding */
+  text-align: center;
+  color: #222C50; /* Dark blue text for contrast */
+}
+
+/* --- 2. Header --- */
+.track-record-header {
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.track-record-heading {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.track-record-subheading {
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* --- 3. Grid for Stats --- */
+.track-record-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px; /* Max width for the grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+/* --- 4. Individual Cards --- */
+.track-record-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  /* No background or border on cards, they blend with the section */
+}
+
+.card-icon {
+  font-size: 40px; /* Large icon size */
+  margin-bottom: 15px;
+  color: #222C50; /* Ensure icon color contrasts */
+}
+
+.card-value {
+  font-family: 'Anek Latin', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #222C50;
+  margin-bottom: 5px;
+}
+
+.card-label {
+  font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222C50; /* Dark blue label */
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-family: 'Aileron', sans-serif;
+  font-size: 15px;
+  color: #5A648A; /* Slightly lighter blue for description */
+  line-height: 1.5;
+}
+
+.card-icon-wrapper-yellow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Slightly larger wrapper */
+  height: 60px;
+  /* Make the background transparent to blend with the yellow section */
+  background-color: transparent; 
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* The SVG icon itself */
+.card-svg-icon-blue {
+  width: 32px; /* Control the size of the icon */
+  height: 32px;
+  /* Set the icon color to match the dark blue text */
+  color: #222C50; 
+}
+
+/* --- 5. Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .track-record-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+
+  .track-record-heading {
+    font-size: 38px;
+  }
+  
+  .card-value {
+    font-size: 32px;
+  }
+
+  .card-label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .track-record-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile phones */
+  }
+
+  .track-record-section {
+    padding: 60px 4%; /* Less padding on small screens */
+  }
+
+  .track-record-heading {
+    font-size: 32px;
+  }
+
+  .track-record-subheading {
+    font-size: 16px;
+  }
+  
+  .card-icon {
+    font-size: 35px;
+  }
+}
+

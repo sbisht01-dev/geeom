@@ -7,13 +7,13 @@ import '../../CSS/home.css';
 function Hero() {
     return (
         <>
-           <div
+            <div
                 style={{
                     minHeight: '80vh',
                     width: '100vw',
                     backgroundColor: '#ffffff',
                     position: 'relative',
-                    zIndex: 1, 
+                    zIndex: 1,
                 }}
             >
                 <div
@@ -33,7 +33,7 @@ function Hero() {
                         backgroundSize: '48px 48px, 48px 48px, 100% 100%, 100% 100%',
                     }}
                 />
-                
+
                 <section className="hero" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="hero-content">
 

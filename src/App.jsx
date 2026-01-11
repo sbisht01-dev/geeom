@@ -6,6 +6,7 @@ import Layout from './Components/Layout';
 import './CSS/global.css';
 import Services from './pages/Services';
 // import Contact from './pages/Contact';
+import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<AboutUs />} />
 
 
         </Route>
