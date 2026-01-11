@@ -2,7 +2,7 @@
     position: relative;
     z-index: 1;
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
