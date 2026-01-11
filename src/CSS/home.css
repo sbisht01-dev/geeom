@@ -1,22 +1,26 @@
 .hero {
     position: relative;
     z-index: 1;
-    box-sizing: border-box;
-    width: 100vw;
+    /* FIX: Standard box model ensures padding doesn't add to width */
+    box-sizing: border-box; 
+    
+    /* FIX: Changed 100vw to 100% */
+    width: 100%; 
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    position: relative;;
-    z-index: 1;
-    padding: 10vh 12%;
+    padding: 10vh 12%; /* Keep your original padding */
     min-height: 80vh;
-    overflow: hidden;
+    overflow: hidden; /* Safety net */
 }
 
 .hero-content {
     flex: 1;
     max-width: 600px;
+    /* FIX: Prevents flex items from overflowing their container */
+    min-width: 0; 
 }
 
 .hero-tag {
@@ -42,12 +46,11 @@
     font-family: 'Aileron', sans-serif;
     font-size: 18px;
     color: #0d131a;
-    /* Softer grey-blue text */
     line-height: 1.6;
     margin-bottom: 30px;
 }
 
-/* --- 3. Buttons --- */
+/* --- Buttons --- */
 .hero-buttons {
     display: flex;
     gap: 15px;
@@ -66,9 +69,7 @@
 
 .hero-btn.primary {
     background-color: #FFC72C;
-    /* Primary yellow */
     color: #332A00;
-    /* Dark text for contrast */
 }
 
 .hero-btn.primary:hover {
@@ -79,9 +80,7 @@
 .hero-btn.secondary {
     background-color: #FFFFFF;
     color: #332A00;
-    /* Dark blue text */
     border: 1px solid #E0E0E0;
-    /* Light border */
 }
 
 .hero-btn.secondary:hover {
@@ -89,7 +88,7 @@
     border-color: #cccccc;
 }
 
-/* --- 4. Stats Section --- */
+/* --- Stats Section --- */
 .hero-stats {
     display: flex;
     gap: 40px;
@@ -106,135 +105,70 @@
     font-size: 36px;
     font-weight: 700;
     color: #222C50;
-    /* Dark blue */
 }
 
 .stat-label {
     font-family: 'Aileron', sans-serif;
     font-size: 14px;
     color: #5A648A;
-    /* Softer grey-blue */
     margin-top: 2px;
 }
 
-/* --- 5. Right Side: Image --- */
+/* --- Right Side: Image --- */
 .hero-image-container {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 500px;
-
 }
 
 .hero-image {
     width: 100%;
     height: auto;
     aspect-ratio: 1/1;
-    /* Makes it square */
     object-fit: cover;
-    /* Ensures image fills the space */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-
-/* --- 6. Mobile Responsiveness --- */
+/* --- Mobile Responsiveness --- */
 @media (max-width: 900px) {
     .hero {
         flex-direction: column;
-        /* Stack on top of each other */
         padding: 50px 6%;
         text-align: center;
+        /* FIX: Prevents width issues on mobile */
+        width: 100%; 
     }
 
-    /* Make image come first on mobile */
     .hero-image-container {
         order: 1;
         margin-bottom: 30px;
         width: 80%;
-        /* Don't let it be full width */
     }
 
     .hero-content {
         order: 2;
         align-items: center;
+        width: 100%; /* Ensure content takes full width */
     }
 
     .hero-heading {
         font-size: 40px;
-        /* Smaller heading for mobile */
     }
 
     .hero-buttons {
         justify-content: center;
-        /* Center buttons */
     }
 
     .hero-stats {
         justify-content: center;
-        /* Center stats */
         gap: 20px;
         flex-wrap: wrap;
-        /* Allow stats to wrap */
     }
 
     .stat {
         align-items: center;
     }
 }
-
-
-/* src/components/ServicesHeader.css */
-
-.services-header {
-  /* Spacing and Alignment */
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #ffffff; /* Assumes a white background */
-}
-
-.services-tag {
-  /* "Our Services" yellow tag */
-  display: inline-block;
-  font-family: 'Aileron', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #D9A100; /* Darker yellow for text */
-  background-color: #FFF9E0; /* Light yellow tag bg */
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.services-heading {
-  /* "Comprehensive Financial Solutions" */
-  font-family: 'Anek Latin', sans-serif;
-  font-size: 44px; /* Large heading size */
-  font-weight: 700;
-  color: #222C50; /* Professional dark blue */
-  margin: 15px 0 10px 0; /* Space above and below */
-}
-
-.services-subheading {
-  /* "We offer a full range..." */
-  font-family: 'Aileron', sans-serif;
-  font-size: 18px;
-  color: #5A648A; /* Softer grey-blue text */
-  line-height: 1.6;
-  
-  /* Constrain the width for readability */
-  max-width: 600px; 
-  margin: 0 auto; /* Center the text block */
-}
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-  .services-heading {
-    font-size: 32px; /* Smaller heading for mobile */
-  }
-
-  .services-subheading {
-    font-size: 16px;
-  }
-}
-
