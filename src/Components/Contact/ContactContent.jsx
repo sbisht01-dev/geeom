@@ -12,7 +12,7 @@ const MapIcon = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none
 const ClockIcon = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC72C" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>;
 
 const ContactContent = () => {
-    // 1. Setup State for fetching info
+    // 1. Setup State
     const [contactInfo, setContactInfo] = useState({
         phone: '',
         email: '',
@@ -22,25 +22,27 @@ const ContactContent = () => {
         hoursWeekday: '',
         hoursSaturday: ''
     });
+    const [faqs, setFaqs] = useState([]); // State for FAQs
     const [loading, setLoading] = useState(true);
 
-    
-    // 3. Fetch Data from Firebase on Component Mount
+    // 2. Fetch Data
     useEffect(() => {
         const contactRef = ref(db, 'contact_info');
         const hoursRef = ref(db, 'business_hours');
+        const faqRef = ref(db, 'FAQ'); // Reference to FAQ node
+
         let fetchedData = {};
         
+        // --- Fetch Contact Info ---
         const unsubscribeContact = onValue(contactRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
                 fetchedData = { ...fetchedData, ...data };
                 updateState(fetchedData);
-                console.log(fetchedData);
-
             }
         });
 
+        // --- Fetch Business Hours ---
         const unsubscribeHours = onValue(hoursRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
@@ -50,6 +52,16 @@ const ContactContent = () => {
                     hoursSaturday: data.saturday
                 };
                 updateState(fetchedData);
+            }
+        });
+
+        // --- Fetch FAQs ---
+        const unsubscribeFAQ = onValue(faqRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // Convert object {faq_1: {...}, faq_2: {...}} to array
+                const faqArray = Object.values(data);
+                setFaqs(faqArray);
             }
         });
 
@@ -70,10 +82,9 @@ const ContactContent = () => {
         return () => {
             unsubscribeContact();
             unsubscribeHours();
+            unsubscribeFAQ();
         };
     }, []);
-
-
 
     return (
         <>
@@ -82,8 +93,6 @@ const ContactContent = () => {
 
                     {/* --- Top Row: Contact Cards --- */}
                     <div className="contact-cards-grid">
-
-                        {/* Phone Card */}
                         <div className="contact-card">
                             <div className="icon-box"><PhoneIcon /></div>
                             <h3>Call Us</h3>
@@ -93,7 +102,6 @@ const ContactContent = () => {
                             <span className="contact-sub">Mon-Fri, 9am-6pm IST</span>
                         </div>
 
-                        {/* Email Card */}
                         <div className="contact-card">
                             <div className="icon-box"><MailIcon /></div>
                             <h3>Email Us</h3>
@@ -103,7 +111,6 @@ const ContactContent = () => {
                             <span className="contact-sub">We respond within 24 hours</span>
                         </div>
 
-                        {/* Address Card */}
                         <div className="contact-card">
                             <div className="icon-box"><MapIcon /></div>
                             <h3>Visit Us</h3>
@@ -118,7 +125,6 @@ const ContactContent = () => {
                             </span>
                         </div>
 
-                        {/* Hours Card */}
                         <div className="contact-card">
                             <div className="icon-box"><ClockIcon /></div>
                             <h3>Office Hours</h3>
@@ -140,15 +146,6 @@ const ContactContent = () => {
                         {/* RIGHT: Sidebar Info */}
                         <div className="contact-sidebar">
 
-                            {/* Image Card */}
-                            <div className="sidebar-image-card">
-                                <img
-                                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                    alt="Handshake"
-                                    className="sidebar-img"
-                                />
-                            </div>
-
                             {/* Yellow Info Card */}
                             <div className="sidebar-info-card yellow-card">
                                 <h3>Why Choose GEEOM?</h3>
@@ -160,30 +157,42 @@ const ContactContent = () => {
                                 </ul>
                             </div>
 
-                            {/* FAQ / Quick Questions */}
+                            {/* FAQ / Quick Questions (Dynamic from DB) */}
                             <div className="sidebar-info-card faq-card">
                                 <h3>Quick Questions</h3>
-                                <div className="faq-item">
-                                    <div className="faq-bar"></div>
-                                    <div>
-                                        <h4>How quickly will I hear back?</h4>
-                                        <p>We typically respond to all inquiries within 24 hours during business days.</p>
-                                    </div>
-                                </div>
-                                <div className="faq-item">
-                                    <div className="faq-bar"></div>
-                                    <div>
-                                        <h4>Is the initial consultation free?</h4>
-                                        <p>Yes, we offer a complimentary 30-minute consultation to discuss your needs.</p>
-                                    </div>
-                                </div>
-                                <div className="faq-item">
-                                    <div className="faq-bar"></div>
-                                    <div>
-                                        <h4>What should I bring to my first meeting?</h4>
-                                        <p>Bring any relevant financial documents or questions you have.</p>
-                                    </div>
-                                </div>
+                                
+                                {loading || faqs.length === 0 ? (
+                                    // Skeleton Loader for FAQs
+                                    <>
+                                        <div className="faq-item">
+                                            <div className="faq-bar"></div>
+                                            <div style={{width: '100%'}}>
+                                                <div className="skeleton-text short" style={{marginBottom: '10px'}}></div>
+                                                <div className="skeleton-text"></div>
+                                            </div>
+                                        </div>
+                                        <div className="faq-item">
+                                            <div className="faq-bar"></div>
+                                            <div style={{width: '100%'}}>
+                                                <div className="skeleton-text short" style={{marginBottom: '10px'}}></div>
+                                                <div className="skeleton-text"></div>
+                                            </div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    // Actual Data Mapping
+                                    faqs.map((faq, index) => (
+                                        <div className="faq-item" key={index}>
+                                            <div className="faq-bar"></div>
+                                            <div>
+                                                {/* Accessing Capitalized Keys as per your DB image */}
+                                                <h4>{faq.Question}</h4>
+                                                <p>{faq.Answer}</p>
+                                            </div>
+                                        </div>
+                                    ))
+                                )}
+
                             </div>
 
                         </div>
@@ -194,13 +203,11 @@ const ContactContent = () => {
 
             {/* --- Google Map Section --- */}
             <div style={{
-                // padding:'10vw',
                 width: '100%',
                 marginTop: '60px',
-                // borderRadius: '20px',
                 overflow: 'hidden',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
-                backgroundColor: '#E5E7EB', /* Fallback color like the design */
+                backgroundColor: '#E5E7EB',
                 height: '400px',
                 position: 'relative',
                 boxSizing: 'border-box'
@@ -213,15 +220,12 @@ const ContactContent = () => {
                     scrolling="no"
                     marginHeight="0"
                     marginWidth="0"
-                    // borderRadius="12px"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d597571.5247121726!2d84.67765880697372!3d22.113816799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1fbe30d762905d%3A0xad4c2976bc70d4b2!2sKendriya%20Vidyalaya%20Meghahatuburu!5e1!3m2!1sen!2sin!4v1768173633755!5m2!1sen!2sin"
                     style={{ filter: 'grayscale(0%)', border: 'none' }}
                     allowFullScreen
                 >
                 </iframe>
-
             </div>
-
         </>
     );
 };
