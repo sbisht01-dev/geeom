@@ -1,16 +1,37 @@
-# React + Vite
+# GEEOM Securities 📈
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![GEEOM Banner](https://via.placeholder.com/1200x600?text=GEEOM+Financial+Platform+Screenshot)
+**Live Demo:** [https://geeom.vercel.app/](https://geeom.vercel.app/)
 
-Currently, two official plugins are available:
+## 📖 About The Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**GEEOM** is a modern, responsive financial advisory platform built to showcase services like Mutual Funds, Pre-IPO shares, and Wealth Management. It serves as a digital storefront for a financial firm, featuring dynamic content management, interactive financial tools, and seamless client communication channels.
 
-## React Compiler
+The project focuses on a premium user experience with smooth parallax animations, clean typography, and mobile-first responsiveness.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Key Features
 
-## Expanding the ESLint configuration
+* **🚀 Dynamic Content Management**: The "Leadership Team" and "Contact Info" sections are powered by **Firebase Realtime Database**, allowing updates without redeploying the code.
+* **🧮 Interactive Financial Tools**: Built-in **SIP Calculator** with accurate CAGR-based logic and real-time result visualization.
+* **📱 Fully Responsive Design**: Optimized for all devices (Mobile, Tablet, Desktop) using custom CSS and Flexbox/Grid layouts.
+* **📩 Smart Contact System**:
+    * Integrated **EmailJS** for direct form submissions.
+    * **WhatsApp Fallback**: Automatically redirects to WhatsApp if email services fail or for instant chatting.
+    * **Appointment Scheduling**: Users can select preferred dates and time slots.
+* **✨ Modern UI/UX**: Features parallax mouse-movement effects in the Hero section and glassmorphism design elements.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+**Frontend:**
+* ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) **React.js (Vite)**
+* ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) **Custom CSS3** (No external UI libraries)
+* ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) **React Router DOM**
+
+**Backend & Services:**
+* ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white) **Firebase Realtime Database** (Data Storage)
+* ![EmailJS](https://img.shields.io/badge/EmailJS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) **EmailJS** (Form Handling)
+* ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) **Vercel** (Deployment)
+
+    ```
+
+## 📂 Project Structure
