@@ -1,0 +1,79 @@
+/* src/components/ServicesHero.css */
+
+.services-hero-section {
+
+      font-family: 'Aileron', sans-serif;
+
+  padding: 80px 20px;
+  background: radial-gradient(circle at center, #fffef5 0%, #ffffff 100%);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- Tagline --- */
+.hero-tag {
+  display: inline-block;
+  background-color: #FFF9E0; /* Soft yellow tag */
+  color: #D4A017;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Heading --- */
+.hero-heading {
+      font-family: 'Aileron', sans-serif;
+
+  /* Fluid typography: min 32px, max 64px based on screen width */
+  font-size: clamp(32px, 5vw, 64px); 
+  font-weight: 800;
+  color: #0D131A;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+/* --- Subheading --- */
+.hero-subheading {
+  font-size: clamp(16px, 2vw, 19px);
+  color: #5A648A;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Responsive Utilities --- */
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .services-hero-section {
+    padding: 120px 20px;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero-section {
+    padding: 60px 15px;
+  }
+  
+  .hero-heading {
+    line-height: 1.2;
+  }
+}

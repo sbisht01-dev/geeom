@@ -17,7 +17,6 @@ function Home() {
       <FinancialCalculators />
       <TrackRecord />
       <ContactCTA />
-      <Footer />
     </ >
   )
 }

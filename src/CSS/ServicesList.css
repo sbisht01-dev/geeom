@@ -1,0 +1,172 @@
+/* src/components/ServicesList.css */
+
+.services-list-section {
+    font-family: 'Aileron', sans-serif;
+
+    padding: 60px 20px;
+    background-color: #FAFAFA;
+    /* Very light grey bg for contrast */
+}
+
+.services-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* --- The Card --- */
+.service-long-card {
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 16px;
+    overflow: hidden;
+    /* Keeps footer inside rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-long-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Header --- */
+.service-card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 30px 20px 30px;
+    border-bottom: 1px solid #F5F5F5;
+    background: #FCFCFC;
+}
+
+.service-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background-color: #FFC72C;
+    /* Brand Yellow */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-main-icon {
+    width: 28px;
+    height: 28px;
+    fill: #0D131A;
+    /* Dark Icon Color */
+}
+
+.service-header-text {
+    flex: 1;
+}
+
+.service-title {
+    font-family: 'Anek Latin', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0D131A;
+    margin: 0 0 5px 0;
+}
+
+.service-subtitle {
+    font-size: 14px;
+    color: #5A648A;
+    margin: 0;
+}
+
+/* --- Body --- */
+.service-card-body {
+    padding: 30px;
+}
+
+.service-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4A5568;
+    margin-bottom: 25px;
+}
+
+.features-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0D131A;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 2-Column Grid for Features */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns */
+    gap: 12px 20px;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.feature-item {
+    font-size: 14px;
+    color: #2D3748;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.check-icon {
+    color: #FFC72C;
+    /* Yellow Check */
+    font-weight: bold;
+}
+
+/* --- Footer Bar --- */
+.service-card-footer {
+    background-color: #FFF9E0;
+    /* Pale Yellow Highlight */
+    padding: 15px 30px;
+    border-top: 1px solid #FEEBC8;
+}
+
+.service-card-footer p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #744210;
+    /* Darker yellow/brown text */
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .service-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .service-icon-wrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .service-main-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        /* Stack features on mobile */
+    }
+
+    .service-card-body,
+    .service-card-header,
+    .service-card-footer {
+        padding: 20px;
+    }
+}

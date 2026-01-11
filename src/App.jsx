@@ -41,23 +41,23 @@ function App() {
       } else {
         document.title = document.initialTitle;
       }
-    }; 
+    };
     document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []); 
+  }, []);
 
   return (
-   <BrowserRouter>
+    <BrowserRouter>
       <Routes>
         {/* Wrap everything in the Layout */}
         <Route element={<Layout />}>
-       <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-  
-          
+
+
         </Route>
       </Routes>
     </BrowserRouter>
