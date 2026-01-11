@@ -38,7 +38,7 @@ function App() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         // Tab is NOT visible (user switched away)
-        document.title = "🥺 We miss you! Come back to your future.";
+        document.title = "Come back to your future.";
       } else {
         document.title = document.initialTitle;
       }
