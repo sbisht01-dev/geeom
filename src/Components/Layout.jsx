@@ -16,6 +16,7 @@ function Layout() {
     else if (path === '/services') setActivePage('Services');
     else if (path === '/about') setActivePage('About Us');
     else if (path === '/contact') setActivePage('Contact');
+    else if (path === '/resources') setActivePage('Resources'); // Handle Resources page
     // Add more mappings as needed
 
   }, [location]);

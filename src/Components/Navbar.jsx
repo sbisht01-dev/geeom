@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
   { name: 'About Us', path: '/about' },
+  { name: 'Resources', path: '/resources' }, // Added Resources link
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -14,16 +15,12 @@ const MAX_MOBILE_WIDTH = '768px';
 
 const Navbar = ({ activePage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-  
-   const itemsRef = useRef([]);
+  const itemsRef = useRef([]);
 
   useEffect(() => {
     // 1. Find the index of the current active page in our list
     const activeIndex = NAV_LINKS.findIndex(link => link.name === activePage);
-    
     const currentTab = itemsRef.current[activeIndex];
 
     if (currentTab) {
@@ -44,7 +41,8 @@ const Navbar = ({ activePage }) => {
 
       {/* DESKTOP MENU */}
       <DesktopMenu>
-     <SlidingIndicator 
+        {/* The sliding yellow background pill */}
+        <SlidingIndicator 
           style={{ 
             left: `${indicatorStyle.left}px`, 
             width: `${indicatorStyle.width}px` 
@@ -67,6 +65,7 @@ const Navbar = ({ activePage }) => {
         {isMenuOpen ? '✕' : '☰'} 
       </HamburgerButton>
 
+      {/* MOBILE MENU */}
       <MobileMenu $isOpen={isMenuOpen}>
         {NAV_LINKS.map((link) => (
           <MobileLink 
@@ -85,7 +84,7 @@ const Navbar = ({ activePage }) => {
 
 export default Navbar;
 
-// --- STYLES ---
+// --- STYLES (Kept exactly the same as your provided code) ---
 
 const Nav = styled.nav`
   box-sizing: border-box;
@@ -122,11 +121,9 @@ const Title = styled.span`
   color: #0d131a;
 `;
 
-// --- DESKTOP MENU & SLIDING LOGIC ---
-
 const DesktopMenu = styled.div`
   display: flex;
-  position: relative; /* Needed so the absolute pill positions relative to this container */
+  position: relative;
   gap: 5px;
   align-items: center;
 
@@ -135,22 +132,19 @@ const DesktopMenu = styled.div`
   }
 `;
 
-// This is the yellow background that slides
 const SlidingIndicator = styled.div`
   position: absolute;
-  height: 100%; /* Match height of links */
+  height: 100%;
   top: 0;
   background-color: #FFC72C;
   border-radius: 50px;
-  z-index: 0; /* Sit BEHIND the text */
-  
-  /* THE MAGIC: Animate the Left and Width properties */
+  z-index: 0;
   transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 const NavLink = styled(Link)`
   position: relative;
-  z-index: 1; /* Sit ON TOP of the yellow pill */
+  z-index: 1;
   font-family: 'Aileron', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -159,13 +153,12 @@ const NavLink = styled(Link)`
   padding: 8px 20px;
   transition: color 0.3s ease;
   border-radius: 50px;
-  background-color: transparent; /* Important: must be transparent to see pill behind it */
+  background-color: transparent;
 
   &:hover {
-    color: #0A0A0A; /* Slightly darker on hover */
+    color: #0A0A0A;
   }
 
-  /* If active, turn text bold/dark, but DO NOT set background here (the pill does that) */
   ${(props) =>
     props.$isActive &&
     css`
@@ -173,8 +166,6 @@ const NavLink = styled(Link)`
       font-weight: 600;
     `}
 `;
-
-// --- MOBILE STYLES (Unchanged) ---
 
 const HamburgerButton = styled.button`
   background: none;
