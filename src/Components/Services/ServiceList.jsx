@@ -111,49 +111,52 @@ const servicesData = [
 
 const ServicesList = () => {
   return (
-    <section className="services-list-section">
+   <main className="services-list-section">
       <div className="services-container">
         {servicesData.map((service) => {
           const IconComp = service.icon;
           
           return (
-            <div key={service.id} className="service-long-card">
+            /* article is perfect here as each service is a self-contained content piece */
+            <article key={service.id} className="service-long-card">
               
               {/* --- Header --- */}
-              <div className="service-card-header">
-                <div className="service-icon-wrapper">
+              <header className="service-card-header">
+                <div className="service-icon-wrapper" aria-hidden="true">
                   <IconComp className="service-main-icon" />
                 </div>
                 <div className="service-header-text">
                   <h2 className="service-title">{service.title}</h2>
                   <p className="service-subtitle">{service.subtitle}</p>
                 </div>
-              </div>
+              </header>
 
               {/* --- Body --- */}
-              <div className="service-card-body">
+              <section className="service-card-body">
                 <p className="service-description">{service.description}</p>
                 
-                <h4 className="features-heading">What's Included:</h4>
+                <h3 className="features-heading">What's Included:</h3> 
+                {/* Note: Changed h4 to h3 for better SEO hierarchy under h2 */}
+                
                 <ul className="features-grid">
                   {service.features.map((item, idx) => (
                     <li key={idx} className="feature-item">
-                      <span className="check-icon">✓</span> {item}
+                      <span className="check-icon" aria-hidden="true">✓</span> {item}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
 
               {/* --- Footer Bar --- */}
-              <div className="service-card-footer">
+              <footer className="service-card-footer">
                 <p>{service.footerText}</p>
-              </div>
+              </footer>
 
-            </div>
+            </article>
           );
         })}
       </div>
-    </section>
+    </main>
   );
 };
 

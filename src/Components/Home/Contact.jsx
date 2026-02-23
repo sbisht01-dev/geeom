@@ -6,7 +6,7 @@ import '../../CSS/Contact.css';
 
 // Firebase Imports
 import { ref, onValue } from "firebase/database";
-import { db } from "../../firebase"; 
+import { db } from "../../firebase";
 
 // SVG Icons
 import PhoneIcon from '../../assets/icons/phone.svg?react';
@@ -37,44 +37,47 @@ const ContactCTA = () => {
   }, []);
 
   return (
-    <section className="cta-section-wrapper">
-      <div className="cta-section">
-        
+    <section className="cta-section-wrapper" aria-labelledby="cta-title">
+      <div className="cta-section" itemScope itemType="https://schema.org/FinancialService">
+
         {/* --- Header --- */}
-        <h2 className="cta-heading">Ready to Get Started?</h2>
-        <p className="cta-subheading">
-          Take the first step towards financial freedom. Schedule a complimentary
-          consultation with our expert advisors today.
-        </p>
+        <header>
+          <h2 id="cta-title" className="cta-heading">Ready to Get Started?</h2>
+          <p className="cta-subheading">
+            Take the first step towards financial freedom. Schedule a complimentary
+            consultation with our expert advisors today.
+          </p>
+        </header>
 
         {/* --- Buttons --- */}
-        <div className="cta-buttons">
+        <nav className="cta-buttons" aria-label="CTA Actions">
           <Link to="/schedule" className="cta-btn primary">
             Schedule Consultation &rarr;
           </Link>
           {/* Dynamic Phone Link for the Button */}
           <a href={`tel:${contactData.phone}`} className="cta-btn secondary">
-            📞 Call Us Now
+            <span aria-hidden="true">📞</span> Call Us Now
           </a>
-        </div>
+        </nav>
 
         {/* --- Divider --- */}
-        <hr className="cta-divider" />
+        <hr className="cta-divider" aria-hidden="true" />
 
         {/* --- Contact Info --- */}
-        <div className="cta-contact-info">
-          {/* Dynamic Phone Link */}
-          <a href={`tel:${contactData.phone}`} className="cta-contact-link">
-            <PhoneIcon className="cta-contact-icon" />
+        {/* Using <address> is the semantic standard for contact information */}
+        <address className="cta-contact-info">
+          {/* Dynamic Phone Link with Schema markup */}
+          <a href={`tel:${contactData.phone}`} className="cta-contact-link" itemProp="telephone">
+            <PhoneIcon className="cta-contact-icon" aria-hidden="true" />
             {contactData.phone}
           </a>
-          
-          {/* Dynamic Email Link */}
-          <a href={`mailto:${contactData.email}`} className="cta-contact-link">
-            <EmailIcon className="cta-contact-icon" />
+
+          {/* Dynamic Email Link with Schema markup */}
+          <a href={`mailto:${contactData.email}`} className="cta-contact-link" itemProp="email">
+            <EmailIcon className="cta-contact-icon" aria-hidden="true" />
             {contactData.email}
           </a>
-        </div>
+        </address>
 
       </div>
     </section>

@@ -51,19 +51,19 @@ const servicesList = [
 
 const Service_home = () => {
   return (
-    <section className="services-section">
+  <section className="services-section" aria-labelledby="services-title">
       
-      {/* --- Header --- */}
-      <div className="services-header-content">
+      {/* --- Header: Grouping the titles for crawlers --- */}
+      <header className="services-header-content">
         <span className="services-tag">Our Services</span>
-        <h2 className="services-heading">
+        <h2 id="services-title" className="services-heading">
           Comprehensive Financial Solutions
         </h2>
         <p className="services-subheading">
           We offer a full range of financial services designed to help you achieve 
           your goals and secure your future.
         </p>
-      </div>
+      </header>
 
       {/* --- Grid --- */}
       <div className="services-grid">
@@ -71,24 +71,25 @@ const Service_home = () => {
           const IconComponent = service.icon;
 
           return (
-            <div key={service.title} className="service-card">
-              <div className="card-icon-wrapper">
-                {/* Render the imported SVG component */}
+            /* Using <article> because each service is a self-contained unit of information */
+            <article key={service.title} className="service-card">
+              <div className="card-icon-wrapper" aria-hidden="true">
+                {/* Icons are decorative, aria-hidden prevents screen readers from reading raw SVG code */}
                 <IconComponent className="card-svg-icon" />
               </div>
               <h3 className="card-title">{service.title}</h3>
               <p className="card-description">{service.description}</p>
-            </div>
+            </article>
           );
         })}
       </div>
 
-      {/* --- "View All" Button --- */}
-      <div className="services-button-container">
-        <Link to="/services" className="services-view-all-btn">
+      {/* --- Footer: Containing the primary navigation action for this section --- */}
+      <footer className="services-button-container">
+        <Link to="/services" className="services-view-all-btn" aria-label="View all financial services">
           View All Services &rarr;
         </Link>
-      </div>
+      </footer>
 
     </section>
   );

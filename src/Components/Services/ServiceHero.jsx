@@ -4,14 +4,14 @@ import '../../CSS/ServicesHero.css';
 
 const ServicesHero = () => {
   return (
-    <section className="services-hero-section">
+  <header className="services-hero-section">
       <div className="hero-container">
-        {/* --- Tagline --- */}
-        <span className="hero-tag">Our Services</span>
+        {/* --- Tagline: Using a span with a role for context --- */}
+        <span className="hero-tag" role="doc-subtitle">Our Services</span>
         
-        {/* --- Main Heading --- */}
+        {/* --- Main Heading: The most important SEO tag on the page --- */}
         <h1 className="hero-heading">
-          Comprehensive <br className="desktop-only" /> Financial Solutions
+          Comprehensive <br className="desktop-only" aria-hidden="true" /> Financial Solutions
         </h1>
         
         {/* --- Subheading --- */}
@@ -20,7 +20,7 @@ const ServicesHero = () => {
           protect your wealth, and secure your financial future.
         </p>
       </div>
-    </section>
+    </header>
   );
 };
 

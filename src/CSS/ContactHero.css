@@ -21,16 +21,17 @@
 
 /* --- Badge --- */
 .contact-badge {
-     display: inline-block;
-  background-color: #FFF9E0; /* Soft yellow tag */
-  color: #D4A017;
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+    display: inline-block;
+    background-color: #FFF9E0;
+    /* Soft yellow tag */
+    color: #D4A017;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* --- Title --- */

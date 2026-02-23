@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
@@ -7,7 +6,7 @@ const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
   { name: 'About Us', path: '/about' },
-  { name: 'Resources', path: '/resources' }, // Added Resources link
+  { name: 'Resources', path: '/resources' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -19,7 +18,6 @@ const Navbar = ({ activePage }) => {
   const itemsRef = useRef([]);
 
   useEffect(() => {
-    // 1. Find the index of the current active page in our list
     const activeIndex = NAV_LINKS.findIndex(link => link.name === activePage);
     const currentTab = itemsRef.current[activeIndex];
 
@@ -29,54 +27,62 @@ const Navbar = ({ activePage }) => {
         width: currentTab.offsetWidth,
       });
     }
-  }, [activePage]); 
+  }, [activePage]);
 
   return (
-    <Nav>
+    <Nav aria-label="Main Navigation">
       <Brand>
-        <StyledLink to="/">
+        <StyledLink to="/" aria-label="GEEOM Securities Home">
           <Title>GEEOM Securities</Title>
         </StyledLink>
       </Brand>
 
       {/* DESKTOP MENU */}
-      <DesktopMenu>
-        {/* The sliding yellow background pill */}
-        <SlidingIndicator 
-          style={{ 
-            left: `${indicatorStyle.left}px`, 
-            width: `${indicatorStyle.width}px` 
-          }} 
+      <DesktopMenu role="menubar">
+        <SlidingIndicator
+          aria-hidden="true"
+          style={{
+            left: `${indicatorStyle.left}px`,
+            width: `${indicatorStyle.width}px`
+          }}
         />
 
         {NAV_LINKS.map((link, index) => (
-          <NavLink 
-            key={link.name} 
+          <NavLink
+            key={link.name}
             to={link.path}
             ref={el => itemsRef.current[index] = el}
             $isActive={activePage === link.name}
+            role="menuitem"
           >
             {link.name}
           </NavLink>
         ))}
       </DesktopMenu>
-      
-      <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? '✕' : '☰'} 
+
+      <HamburgerButton 
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-expanded={isMenuOpen}
+        aria-label="Toggle navigation menu"
+      >
+        {isMenuOpen ? '✕' : '☰'}
       </HamburgerButton>
 
       {/* MOBILE MENU */}
-      <MobileMenu $isOpen={isMenuOpen}>
-        {NAV_LINKS.map((link) => (
-          <MobileLink 
-            key={link.name} 
-            to={link.path} 
-            onClick={() => setIsMenuOpen(false)}
-            $isActive={activePage === link.name}
-          >
-            {link.name}
-          </MobileLink>
-        ))}
+      <MobileMenu $isOpen={isMenuOpen} aria-hidden={!isMenuOpen}>
+        <MobileNavList>
+          {NAV_LINKS.map((link) => (
+            <li key={link.name}>
+              <MobileLink
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                $isActive={activePage === link.name}
+              >
+                {link.name}
+              </MobileLink>
+            </li>
+          ))}
+        </MobileNavList>
       </MobileMenu>
     </Nav>
   );
@@ -84,8 +90,9 @@ const Navbar = ({ activePage }) => {
 
 export default Navbar;
 
-// --- STYLES (Kept exactly the same as your provided code) ---
+// --- STYLES (Semantic Updates Applied Here) ---
 
+// 1. Changed from div to nav
 const Nav = styled.nav`
   box-sizing: border-box;
   background-color: #fff;
@@ -112,6 +119,7 @@ const StyledLink = styled(Link)`
   color: #0d131a;
 `;
 
+// 2. Kept as span for SEO (avoiding multiple h1s)
 const Title = styled.span`
   font-family: 'Anek Latin', sans-serif;
   font-size: 20px;
@@ -177,12 +185,13 @@ const HamburgerButton = styled.button`
   @media (min-width: ${MAX_MOBILE_WIDTH}) { display: none; }
 `;
 
+// 3. Mobile menu container
 const MobileMenu = styled.div`
   position: fixed;
   top: 0; right: 0; width: 250px; height: 100vh;
   background-color: #fff;
   box-shadow: -4px 0 8px rgba(0,0,0,0.1);
-  padding-top: 60px; padding-left: 20px;
+  padding-top: 60px;
   display: flex; flex-direction: column;
   transition: transform 0.3s ease-in-out;
   z-index: 999; 
@@ -191,7 +200,17 @@ const MobileMenu = styled.div`
   @media (min-width: ${MAX_MOBILE_WIDTH}) { display: none; }
 `;
 
+// 4. Added a proper list for Mobile SEO links
+const MobileNavList = styled.ul`
+  list-style: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+`;
+
 const MobileLink = styled(Link)`
+  display: block; /* Ensures the whole area is clickable */
   font-family: 'Anek Latin', sans-serif;
   font-size: 18px; font-weight: 600; color: #0A0A0A;
   text-decoration: none; padding: 12px 15px;
