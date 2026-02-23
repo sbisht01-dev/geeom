@@ -23,9 +23,7 @@ function Layout() {
 
   return (
     <>
-      {/* Navbar stays here permanently */}
       <Navbar activePage={activePage} />
-      {/* The 'Outlet' is where Home, Services, etc. will be swapped in */}
       <main>
         <Outlet />
         <Footer />

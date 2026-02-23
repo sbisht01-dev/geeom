@@ -9,9 +9,9 @@ import Contact from './pages/Contact';
 import AboutUs from './pages/AboutUs';
 import NotFound from './pages/NotFound';
 import ContactUs from './pages/Contact';
-import Resources from './Components/Resources/Resources';
-function App() {
+import Resources from './pages/Resources';
 
+function App() {
   // --- Lenis Smooth Scroll Setup ---
   useEffect(() => {
     const lenis = new Lenis({
@@ -55,7 +55,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Wrap everything in the Layout */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

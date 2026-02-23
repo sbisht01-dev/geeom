@@ -8,7 +8,11 @@ import TrackRecord from '../Components/Home/TrackRecord'
 import ContactCTA from '../Components/Home/Contact'
 import Footer from '../Components/Home/Footer'
 import GeeomPhilosophy from '../Components/Home/GeeomPhilosophy'
+import { useEffect } from 'react'
 function Home() {
+  useEffect(() => {
+    document.title = "GEEOM Securities | Expert Financial Services & Wealth Management";
+  }, []);
   return (
     <>
       <Hero />

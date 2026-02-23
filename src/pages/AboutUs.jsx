@@ -2,9 +2,12 @@ import React from 'react';
 import AboutHero from '../Components/About/AboutHero';
 import AboutStory from '../Components/About/AboutStory.jsx';
 import OurTeam from '../Components/Services/OurTeam.jsx';
+import { useEffect } from 'react';
 
-
-const AboutUs = () => {
+function AboutUs() {
+    useEffect(() => {
+        document.title = "About Us | Our Mission & Expertise | GEEOM Securities";
+    }, []);
     return (
         <>
             <AboutHero />

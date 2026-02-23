@@ -2,7 +2,7 @@
 import Lottie from 'lottie-react';
 import notFoundAnimation from '../assets/Error404.json'; 
 
-const NotFound = () => {
+function NotFound() {
   return (
     <div style={{ 
       overflow: 'hidden',
